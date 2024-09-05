@@ -1,0 +1,38 @@
+------------------------------Web Storage API :
+
+
+The Web Storage API provides a way for web applications to store and
+retrieve data locally within a user's browser.
+There are two main mechanisms provided by the Web Storage API:
+
+1) local storage
+2) session storage
+
+
+++++++++++++++++++++++ Local storage :
+
+
+• It is a mechanism provided by the Web Storage API which does the same thing as session storage,
+but persists the data even if the browser is closed and reopened, and even if the user's computer is
+shutdown and restarted.
+• Stores data with no expiration date.
+• Developers can use 'localStorage' object in JS to interact with local storage.
+• In 'localStorage' object there are methods to store and retrieve data :
+- setltem('key' , 'value') - for storing data in local storage
+- getltem('key') -for retrieving data from local storage
+- removeltem('key')
+- for removing a specific item from local storage.
+
++++++++++++++S ession storage :
+
+
+• It is a mechanism provided by the Web Storage API for storing key-value pairs, but the data is only
+available for the duration of the page session (as long as the browser is open, including page
+reloads) .
+• Data stored in session storage is cleared when the browser tab or window is closed.
+• Developers can use 'sessionStorage' object in JS to interact with session storage.
+• In 'sessionStorage' object there are methods to store and retrieve data :
+- setltem('key' , 'value') - for storing data in session storage
+- getltem('key') -for retrieving data from session storage
+- removeltem('key')
+- for removing a specific item from session storage.

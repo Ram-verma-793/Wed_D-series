@@ -1,0 +1,13 @@
+.................................   Asynchronous JavaScript :
+
+
+• By default, JS is synchronous -where each line is executed one after the
+other (in a sequence), blocking the execution until the current operation
+is completed.
+
+
+• Asynchronous JS allows the program to continue running other tasks
+instead of blocking the execution of code.
+
+
+• Asynchronous tasks include - fetching data from APIs, setTimeout

@@ -1,0 +1,52 @@
+// .................................Callback Hell :
+
+
+// • One of the most common issues with callbacks is Callback Hell, also known
+// as Pyramid of doom.
+
+// • Callback Hell refers to multiple nested callback functions.
+
+// - It makes the code harder to read & maintain.
+// - It becomes complex to understand the logic & flow of code.
+
+// • So, that's why Advancements like Promises and async-await have been
+// introduced to address these challenges and provide a more readable way to
+// handle asynchronous code.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CallBackHell</title>
+</head>
+<body>
+    
+<h1 id="heading1">heading 1</h1>
+<h1 id="heading2">heading 2</h1>
+<h1 id="heading3">heading 3</h1>
+
+<button id="btn">click</button>
+    
+
+<script>
+    let h1 = document.getElementById("heading1")
+    let h2 = document.getElementById("heading2")
+    let h3 = document.getElementById("heading3")
+
+    let btn = document.getElementById("btn")
+
+    document.addEventListener("click", ()=> {
+        setTimeout(() => {
+            h1.style.color = "red";
+            setTimeout(()=> {
+                h2.style.color = "green";
+                setTimeout(()=> {
+                    h3.style.color = "blue";
+                }, 1000)
+            }, 1000)
+        }, 1000)
+    })
+</script>
+</body>
+</html>

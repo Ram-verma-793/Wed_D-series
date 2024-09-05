@@ -1,0 +1,100 @@
+<!-- ....................Promises in JavaScript :
+
+
+• Promises are introduced to simplify and improve the handling of
+asynchronous operations, which increases readability and maintainability
+of the code.
+
+• It is a solution to callback Hell.
+
+• Promises are objects representing the eventual completion or failure of
+an asynchronous operation (such as fetching data from server, or executing
+any code that takes time to execute). -->
+
+<!-- 
+A promise can be in one of the three states:
+
+• Pending: Initial state, neither fulfilled nor rejected.
+• Fulfilled: Meaning that the operation was completed successfully.
+• Rejected: Meaning that the operation failed.
+
+Syntax ;
+
+• Promises are created using the 'Promise' constructor.
+• The constructor takes a function as an argument (executor function), which in turn takes two
+arguments: resolve and reject. (resolve and reject functions are predefined in JS engines) -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>promises in js</title>
+  </head>
+  <body>
+    <h1 id="heading1">heading 1</h1>
+    <h1 id="heading2">heading 2</h1>
+    <h1 id="heading3">heading 3</h1>
+
+    <button id="btn">click</button>
+
+    <script>
+          let h1 = document.getElementById("heading1");
+          let h2 = document.getElementById("heading2");
+          let h3 = document.getElementById("heading3");
+
+          let btn = document.getElementById("btn");
+
+
+
+      btn.addEventListener("click", () => {
+          addColor(h1, "red", 2000)
+          .then(() => {
+              return addColor(h2, "green", 2000);
+          })
+          .then(() => {
+              return addColor(h3, "blue", 2000);
+          })
+          .catch((error) => {
+            document.write(error);
+          });
+      });
+
+
+      function addColor(element, color, time){
+          return new Promise((resolve, reject) => {
+              if(element){
+                  setTimeout(() => {
+                      element.style.color = color;
+                      resolve();
+                  }, time);
+              }
+              else {
+                  reject(new Error("No such an element found!"));
+              }
+          });
+      }
+
+
+
+
+
+          // <!-- <script>
+          //     const myPromise = new Promise((resolve, reject) => {
+          //         let success = false;
+          //         if (success){
+          //             resolve("code runs successfully!")
+          //         } else {
+          //             reject ("error!")
+          //         }
+          //     })
+
+          //     myPromise.then(
+          //     (data) => {document.write(data);},
+          // );
+          // myPromise.catch (
+          //     document.write("rejected!")
+          // ) -->
+    </script>
+  </body>
+</html>
