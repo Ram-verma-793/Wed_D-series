@@ -1,0 +1,95 @@
+<!-- async-await :
+Async and await are features in JavaScript that simplify working with promises, making
+asynchrontus code easier to write and understand.
+• Asyncfunction
+'async' keyword is used to declare an asynchronous function.
+It automatically returns a promise.
+Inside an async function, you can use the 'await' keyword.
+• Await
+Can only be used inside async functions.
+Pauses the execution of the async function and waits for the promise to resolve.
+Returns the resolved value of the promise.
+Makes the code look synchronous, though it's still asynchronous. -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async-await in JS</title>
+    <style>
+        body {
+            height: 100vh;
+            width: 100%;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .div {
+            height: 100px;
+            width: 100px;
+            border: 5px dotted rgb(255, 255, 255);
+            background-color: rgb(225, 255, 0);
+            font-size: 2rem;
+            margin: 20px;
+            color: rgb(0, 0, 0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #btn {
+            color: white;
+            font-size: 1.3rem;
+            background-color: pink;
+        }
+        #btn:hover {
+            background-color: rgb(242, 139, 156);
+            font-size: 1.4rem;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="div" id="div1">div1</div>
+    <div class="div" id="div2">div2</div>
+    <div class="div" id="div3">div3</div>
+
+    <button id="btn">click</button>
+
+    <script>
+        let d1 = document.getElementById("div1");
+        let d2 = document.getElementById("div2");
+        let d3 = document.getElementById("div3");
+        let btn = document.getElementById("btn");
+
+        btn.addEventListener("click", async () => {
+           try {
+            await addColor(d1, "red", 1000);                                                      
+            await addColor(d2, "green", 1000);                                                      
+            await addColor(d3, "blue", 1000);  
+           }     
+           catch(error) {
+            document.write(error);
+           }                                                   
+        });
+
+        function addColor(element, color, time) {
+            return new Promise((resolve, reject) => {
+                if (element) {
+                    setTimeout(() => {
+                        element.style.backgroundColor = color;
+                        resolve();
+                    }, time);
+                } else {
+                    reject(new Error("No such element found!"));
+                }
+            });
+        }
+    </script>
+</body>
+</html>
